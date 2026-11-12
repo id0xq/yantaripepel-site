@@ -56,17 +56,36 @@
     if (!p) return [];
     return (p.lessons || []).map(function (l) { return typeof l === 'string' ? lessonBySlug(l) : l; }).filter(Boolean);
   }
-  function materialsOf(item) {
+  // Что понадобится — под выбранный металл: медная или бронзовая глина (у колец и серёг —
+  // белая бронза) и корунд, либо серебряная глина и натуральный камень после обжига.
+  function materialsOf(item, line) {
     var o = offers(item), src = o.lesson || o.course;
     var seen = {}, out = [];
+    function fits(x) {
+      if (x.metal && line && x.metal !== line) return false;
+      if (x.forms === 'skin' && !item.skin) return false;
+      if (x.forms === 'base' && item.skin) return false;
+      return true;
+    }
     lessonsOf(src).forEach(function (l) {
       var mats = l.materials || [];
       mats.forEach(function (m) {
         var list = typeof m === 'string' ? (shop.materials[m] || []) : [m];
-        list.forEach(function (x) { if (!seen[x.name]) { seen[x.name] = 1; out.push(x); } });
+        list.forEach(function (x) { if (fits(x) && !seen[x.name]) { seen[x.name] = 1; out.push(x); } });
       });
     });
     return out;
+  }
+
+  function renderMats() {
+    var line = state.sel && state.sel.line;
+    var mats = materialsOf(state.item, line);
+    el.matsH.textContent = 'Что понадобится' + (line === 'rare' ? ': серебро' : line === 'classic' ? ': медь и бронза' : '');
+    el.mats.innerHTML = mats.map(function (m) {
+      var name = m.url ? '<a href="' + esc(m.url) + '" target="_blank" rel="noopener sponsored">' + esc(m.name) + '</a>' : esc(m.name);
+      return '<li>' + name + (m.note ? '<small>' + esc(m.note) + '</small>' : '') + '</li>';
+    }).join('');
+    el.mats.parentNode.hidden = !mats.length;
   }
 
   // Каталог из кабинета, если он подключён: там актуальные цены и статусы.
@@ -113,7 +132,7 @@
           '<header class="pd__head"><p class="pd__no"></p><h2 class="pd__title" id="pd-title"></h2><p class="pd__lead"></p></header>' +
           '<section class="pd__offers" aria-label="Урок и курс"></section>' +
           '<form class="pd__form" novalidate onsubmit="return false">' +
-            '<p class="pd__try">Примерьте металл и камень — чертёж и 3D меняются сразу</p>' +
+            '<p class="pd__try">Примерьте металл и камень — чертёж меняется сразу</p>' +
             '<div class="pd__opts"></div>' +
           '</form>' +
           '<dl class="pd__specs"></dl>' +
@@ -136,6 +155,7 @@
     el.specs = $('.pd__specs', dlg);
     el.offers = $('.pd__offers', dlg);
     el.mats = $('.pd__list--mats', dlg);
+    el.matsH = $('.pd__mats .pd__h3', dlg);
     el.lessonsH = $('.pd__lessons .pd__h3', dlg);
     el.lessons = $('.pd__list--lessons', dlg);
     el.legend = $('.pd__legend', dlg);
@@ -223,12 +243,7 @@
     var any = onSale(o.lesson) || onSale(o.course);
     el.offers.innerHTML = offerHtml(o.course, 'course') + offerHtml(o.lesson, 'lesson') +
       (any ? '' : '<p class="pd__soon">Старт продаж — ' + esc(shop.launchLabel || 'скоро') + '. Анонс, бесплатные уроки и розыгрыш — в нашем сообществе ВКонтакте.</p>');
-    var mats = materialsOf(state.item);
-    el.mats.innerHTML = mats.map(function (m) {
-      var name = m.url ? '<a href="' + esc(m.url) + '" target="_blank" rel="noopener sponsored">' + esc(m.name) + '</a>' : esc(m.name);
-      return '<li>' + name + (m.note ? '<small>' + esc(m.note) + '</small>' : '') + '</li>';
-    }).join('');
-    el.mats.parentNode.hidden = !mats.length;
+    renderMats();
     var course = o.course, ls = lessonsOf(course);
     el.lessonsH.textContent = course ? 'Уроки курса' : '';
     el.lessons.innerHTML = ls.map(function (l) {
@@ -246,6 +261,7 @@
     if (again) again.focus({ preventScroll: true });
     renderArt();
     renderSpecs();
+    if (input.name === 'line') renderMats();
     track('option', { item: state.item.id, option: input.name });
   }
 

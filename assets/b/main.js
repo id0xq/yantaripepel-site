@@ -651,7 +651,8 @@
     $$('[data-duo]').forEach(function (b) { b.addEventListener('click', function () { setDuo(b.getAttribute('data-duo')); }); });
     faq.addEventListener('click', function (e) { if (e.target === faq || e.target.closest('.faq__x')) closeFaq(); });
 
-    AA.preorder.init({ variant: 'B', artLabel: 'Чертёж', renderArt: dialogArt });
+    // На сцене — 3D из точек, в карточке — чертёж с выносками (решение 12.11.2026).
+    AA.preorder.init({ variant: 'B', artLabel: 'Чертёж', renderArt: null });
     AA.preorder.on('counts', statuses);
     var dlg = $('dialog.pd');
     if (dlg) dlg.addEventListener('close', dialogClosed);
