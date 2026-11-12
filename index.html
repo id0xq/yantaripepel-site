@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Янтарь и Пепел — украшения из серебра своими руками</title>
+  <meta name="description" content="Мастерская «Янтарь и Пепел»: учим делать украшения из настоящего серебра и меди своими руками — без опыта и без печи. Видеоуроки, курсы, клуб мастерской и новогодний розыгрыш.">
+  <meta property="og:title" content="Янтарь и Пепел — украшения из серебра своими руками">
+  <meta property="og:description" content="Серебро 999 пробы из глины: лепите, сушите, обжигаете горелкой. Курсы и видеоуроки без опыта и без печи.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yantaripepel.ru/">
+  <meta property="og:image" content="https://yantaripepel.ru/assets/b/ref/hero-s.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="canonical" href="https://yantaripepel.ru/">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='41' font-family='Georgia' font-size='22' fill='%23ecebe7' text-anchor='middle'%3Ea%26sh%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Onest:wght@400;500&family=JetBrains+Mono:wght@400&family=Spectral:wght@500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="../assets/b/ref/hero-s.jpg">
+  <link rel="stylesheet" href="../assets/b/style.css?v=24">
+  <script>if (window.matchMedia && matchMedia('(min-width: 900px) and (min-height: 640px)').matches) document.documentElement.classList.add('deck-mode');</script>
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+</head>
+<body class="v-b">
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </svg>
+
+  <canvas class="gl" aria-hidden="true"></canvas>
+  <div class="trk" aria-hidden="true"><svg><path class="trk__link"/><path class="trk__mark"/></svg></div>
+
+  <a class="skip" href="#pieces" data-go="2">К украшениям</a>
+
+  <header class="bar">
+    <a class="bar__mark" href="#stone" data-go="0" aria-label="Янтарь и Пепел, к первому слайду">Янтарь и Пепел</a>
+    <nav class="bar__nav" aria-label="Разделы">
+      <a href="#lines" data-go="1">Из глины в серебро</a>
+      <a href="#pieces" data-go="2">Украшения</a>
+      <a href="#preorder" data-go="4" data-gw-flag>Розыгрыш</a>
+      <button type="button" data-faq>Вопросы</button>
+    </nav>
+    <a class="bar__cta" href="#pieces" data-go="2" data-cta>Выбрать украшение</a>
+  </header>
+
+  <p class="side" aria-hidden="true">янтарь — пепел — мастерская</p>
+
+  <nav class="dots" aria-label="Слайды">
+    <button type="button" data-go="0" aria-label="Мастерская"></button>
+    <button type="button" data-go="1" aria-label="Из глины в серебро"></button>
+    <button type="button" data-go="2" aria-label="Украшения"></button>
+    <button type="button" data-go="3" aria-label="Янтарь и пепел"></button>
+    <button type="button" data-go="4" aria-label="Начать"></button>
+  </nav>
+
+  <p class="count" aria-hidden="true"><b data-count>01</b><span> / 05</span></p>
+
+  <div class="tools" role="group" aria-label="Вид облака точек">
+    <button type="button" class="tool" data-tool="trackers" aria-pressed="true">Трекеры</button>
+    <button type="button" class="tool" data-tool="scan" aria-pressed="true">Скан</button>
+    <button type="button" class="tool" data-tool="trails" aria-pressed="false">Следы</button>
+    <span class="tools__sep" aria-hidden="true"></span>
+    <button type="button" class="tool" data-tool="dense" aria-pressed="false">Плотно</button>
+    <label class="tools__range">Глубина<input type="range" min="0" max="2.4" step="0.1" value="1" data-depth></label>
+  </div>
+
+  <main class="deck">
+    <section class="sl sl--stone" id="stone" data-scene="stone" aria-labelledby="t-stone">
+      <img class="sl__still" src="../assets/b/ref/hero-s.jpg" alt="" aria-hidden="true">
+      <div class="sl__copy">
+        <p class="sl__tag"><span class="sl__mono">a&amp;sh</span><span data-phase>Мастерская</span><span>2026</span></p>
+        <h1 class="sl__title" id="t-stone">Янтарь и Пепел</h1>
+        <p class="sl__lead">Украшения из настоящего серебра своими руками — без опыта и без печи.</p>
+        <p class="sl__note">Учим делать украшения из серебряной и медной глины: от комка глины до камня в оправе и зеркальной полировки. Видеоуроки, курсы и клуб мастерской.</p>
+        <div class="sl__act">
+          <button class="btn btn--light" type="button" data-go="2">Выбрать украшение</button>
+          <button class="btn btn--text" type="button" data-go="1">Как это работает</button>
+        </div>
+      </div>
+      <p class="sl__ref">Фото-референс. Заменим своей макросъёмкой</p>
+    </section>
+
+    <section class="sl sl--lines" id="lines" data-scene="line-classic" aria-labelledby="t-lines">
+      <img class="sl__still" src="../assets/b/ref/line-rare.jpg" alt="" aria-hidden="true">
+      <div class="sl__copy">
+        <p class="sl__tag"><span class="sl__mono">a&amp;sh</span>Металл и камень<span>2026</span></p>
+        <h2 class="sl__title" id="t-lines">Из глины в серебро</h2>
+        <p class="sl__lead">Глина из частиц металла: лепите как пластилин, сушите, обжигаете горелкой — и в руках настоящий металл.</p>
+        <div class="tabs" role="tablist" aria-label="Металл" aria-orientation="vertical" data-lines></div>
+        <p class="sl__note" data-line-note aria-live="polite"></p>
+        <div class="sl__act">
+          <button class="btn btn--light" type="button" data-go="2">Выбрать украшение</button>
+          <button class="btn btn--text" type="button" data-faq>Вопросы</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sl sl--pieces" id="pieces" data-scene="field" aria-labelledby="t-pieces">
+      <div class="sl__copy">
+        <p class="sl__tag"><span class="sl__mono">a&amp;sh</span>Проекты<span>2026</span></p>
+        <h2 class="sl__title" id="t-pieces">Украшения</h2>
+        <p class="sl__lead">Пять проектов — от шарма с камнем до палочки со сменным наконечником. У каждого чертёж, видеоурок и список материалов.</p>
+        <ul class="pieces" data-pieces></ul>
+        <div class="sl__act">
+          <button class="btn btn--light" type="button" data-build>Как сделать это украшение</button>
+          <button class="btn btn--text" type="button" data-faq>Вопросы</button>
+        </div>
+      </div>
+      <figure class="stage" data-stage aria-live="polite">
+        <div class="stage__art" data-stage-art></div>
+        <ol class="stage__key" data-stage-key></ol>
+        <figcaption class="stage__cap"><span data-stage-spec></span><span data-stage-status></span></figcaption>
+      </figure>
+    </section>
+
+    <section class="sl sl--idea" id="idea" data-scene="amber" aria-labelledby="t-idea">
+      <img class="sl__still" src="../assets/b/ref/amber-s.jpg" alt="" aria-hidden="true">
+      <div class="sl__copy">
+        <p class="sl__tag"><span class="sl__mono">a&amp;sh</span>Камень и металл<span>2026</span></p>
+        <h2 class="sl__title" id="t-idea" data-duo-word>янтарь</h2>
+        <div class="duo" role="group" aria-label="Янтарь и пепел">
+          <button type="button" class="duo__b" data-duo="amber" aria-pressed="true">янтарь</button>
+          <button type="button" class="duo__b" data-duo="ash" aria-pressed="false">пепел</button>
+        </div>
+        <p class="sl__lead" data-duo-text>Камень: корунд, лабрадорит, аквамарин, гранат. Момент, сохранённый в форме.</p>
+        <p class="sl__note">У каждой вещи своя легенда. В мастерской вы делаете украшение сами — от первого комка глины до камня в оправе — и знаете историю каждого шага.</p>
+      </div>
+      <p class="sl__ref">Фото-референсы</p>
+    </section>
+
+    <section class="sl sl--order" id="preorder" data-scene="mono" aria-labelledby="t-order">
+      <div class="sl__copy">
+        <p class="sl__tag"><span class="sl__mono">a&amp;sh</span><span data-phase>Мастерская</span><span>2026</span></p>
+        <h2 class="sl__title" id="t-order">Начать</h2>
+        <div class="gw" data-gw>
+          <p class="gw__k"><span data-gw-title>Новогодний розыгрыш</span><span class="gw__when" data-gw-when></span></p>
+          <ul class="gw__prizes" data-gw-prizes></ul>
+          <p class="gw__act"><a class="gw__go" data-gw-post href="https://vk.ru/yantaripepel" target="_blank" rel="noopener">Участвовать во ВКонтакте</a><button class="gw__rules" type="button" data-faq="giveaway">Условия</button></p>
+          <p class="gw__winners" data-gw-winners hidden></p>
+        </div>
+        <ol class="steps">
+          <li><b>Подпишитесь</b><span>Ролики, бесплатные уроки и анонсы — в сообществе ВКонтакте.</span></li>
+          <li><b>Заберите гайд</b><span>Что купить для первого украшения и сколько это стоит — в Telegram-боте.</span></li>
+          <li><b>Учитесь в своём темпе</b><span>Курсы и клуб открываются <time data-launch>1 декабря</time>: оплата на сайте, уроки в личном кабинете.</span></li>
+        </ol>
+        <div class="sl__act">
+          <a class="btn btn--light" data-link="vk" href="https://vk.ru/yantaripepel" target="_blank" rel="noopener">Сообщество ВК</a>
+          <a class="btn btn--text" data-link="bot" href="https://t.me/yantaripepel_bot" target="_blank" rel="noopener">Гайд в Telegram</a>
+          <button class="btn btn--text" type="button" data-faq>Вопросы</button>
+        </div>
+        <p class="sl__fine">
+          <a data-link="telegram" href="#" target="_blank" rel="noopener" hidden>Telegram</a>
+          <a data-link="youtube" href="#" target="_blank" rel="noopener" hidden>YouTube</a>
+          <a data-link="rutube" href="#" target="_blank" rel="noopener" hidden>RUTUBE</a>
+          <a data-link="dzen" href="#" target="_blank" rel="noopener" hidden>Дзен</a>
+          <a data-link="pinterest" href="#" target="_blank" rel="noopener" hidden>Pinterest</a>
+          <a data-link="livemaster" href="#" target="_blank" rel="noopener" hidden>Ярмарка Мастеров</a>
+          <a data-link="tiktok" href="#" target="_blank" rel="noopener" hidden>TikTok</a>
+          <a data-link="instagram" href="#" target="_blank" rel="noopener" hidden>Instagram*</a>
+          <a href="../legal/rozygrysh.html">Правила розыгрыша</a>
+          <a href="../legal/privacy.html">Политика обработки данных</a>
+          <span class="sl__fine-note" data-link-note="instagram" hidden>*Instagram принадлежит компании Meta, признанной экстремистской и запрещённой в России.</span>
+        </p>
+      </div>
+      <p class="sl__ref">Фото-референсы: Unsplash</p>
+    </section>
+  </main>
+
+  <div class="faq" id="faq" role="dialog" aria-modal="true" aria-labelledby="faq-title" hidden>
+    <div class="faq__panel">
+      <button class="faq__x" type="button" aria-label="Закрыть вопросы"><span></span></button>
+      <h2 class="faq__title" id="faq-title">Вопросы</h2>
+      <details><summary>Нужен ли опыт?</summary><p>Нет. Курс начинается с нуля: что такое серебряная глина, какие инструменты купить, как раскатать, высушить, обжечь и отполировать. Первое украшение — шарм с камнем — получается за выходные.</p></details>
+      <details><summary>Нужна ли ювелирная печь?</summary><p>Нет. Серебряную глину, которую мы используем в курсе, обжигают обычной бутановой горелкой на огнеупорной плитке. Печь понадобится только для крупных изделий и бронзы — об этом скажем в уроках.</p></details>
+      <details><summary>Это правда серебро?</summary><p>Да. Глина состоит из мелких частиц серебра, связующего и воды. При обжиге связующее сгорает, частицы спекаются — получается серебро 999 пробы. Медная глина после обжига становится медью.</p></details>
+      <details><summary>Сколько стоит начать?</summary><p>Инструменты недорогие, основная статья — глина. Список с ценами и ссылками — в бесплатном гайде в нашем Telegram-боте и в каждом уроке в разделе «Что понадобится». Начать дешевле можно с медной глины.</p></details>
+      <details><summary>Как получить доступ к урокам?</summary><p>Оплачиваете курс или урок на сайте — уроки сразу открываются в личном кабинете. Смотреть можно с телефона и компьютера. Продажи откроются <time data-launch>1 декабря</time>.</p></details>
+      <details><summary>Чем курс отличается от урока и клуба?</summary><p>Урок — один проект, например кольцо с камнем. Курс — несколько проектов и все основы: материал, сушка, обжиг, полировка. Клуб — подписка на месяц: вся библиотека уроков, новый проект каждый месяц, разборы ваших работ и чат.</p></details>
+      <details><summary>Сколько длится доступ?</summary><p>Курсы и уроки — без срока, пересматривайте сколько угодно. Клуб — пока действует подписка.</p></details>
+      <details><summary>Можно подарить курс?</summary><p>Да. Напишите нам в сообщество ВКонтакте — пришлём код доступа, который получатель активирует в личном кабинете.</p></details>
+      <details id="faq-giveaway"><summary>Новогодний розыгрыш: как участвовать?</summary>
+        <ol class="faq__steps" data-gw-steps></ol>
+        <p data-gw-dates></p>
+        <p>Призы: набор для создания украшения, готовое украшение ручной работы и доступ в клуб мастерской. Участие бесплатное. <a href="../legal/rozygrysh.html">Полные правила</a>.</p>
+      </details>
+      <details><summary>Безопасно ли работать с горелкой?</summary><p>Да, если соблюдать простые правила: огнеупорная поверхность, открытое окно, волосы собраны, рядом ничего горючего. При шлифовке сухой глины — респиратор. В уроках показываем всё на своём рабочем месте.</p></details>
+      <p class="faq__fine">Мастерская «Янтарь и Пепел». Вопросы — в сообществе <a href="https://vk.ru/yantaripepel" target="_blank" rel="noopener">vk.ru/yantaripepel</a> или на почту yantaripepel@gmail.com.</p>
+    </div>
+  </div>
+
+  <script src="../assets/shared/catalog.js?v=24" defer></script>
+  <script src="../assets/shared/shop.js?v=24" defer></script>
+  <script src="../assets/shared/drawings.js?v=24" defer></script>
+  <script src="../assets/shared/preorder.js?v=24" defer></script>
+  <script src="../assets/b/cloud.js?v=24" defer></script>
+  <script src="../assets/b/main.js?v=24" defer></script>
+  <!-- 3D-изделия: Three.js с CDN; если не загрузится, на сцене останется чертёж -->
+  <script type="module" src="../assets/b/models.js?v=24"></script>
+</body>
+</html>
