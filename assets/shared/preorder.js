@@ -100,6 +100,10 @@
         shop = { products: j.products, lessons: Object.keys(lessons).map(function (k) { return lessons[k]; }), materials: shop.materials, launch: shop.launch, launchLabel: shop.launchLabel, giveaway: shop.giveaway };
         AA.shop = shop;
         emit('counts', {});
+        return fetch(cfg.app.replace(/\/$/, '') + '/api/site', { credentials: 'omit' }).then(function (r) { return r.ok ? r.json() : null; });
+      })
+      .then(function (site) {
+        if (site && site.giveaway) { shop.giveaway = site.giveaway; emit('counts', {}); }
         if (dlg && dlg.open && state.item) renderOffers();
       })
       .catch(function () { /* кабинет недоступен — остаёмся на shop.js */ });

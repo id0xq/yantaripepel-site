@@ -653,7 +653,7 @@
 
     // На сцене — 3D из точек, в карточке — чертёж с выносками (решение 12.11.2026).
     AA.preorder.init({ variant: 'B', artLabel: 'Чертёж', renderArt: null });
-    AA.preorder.on('counts', statuses);
+    AA.preorder.on('counts', function () { statuses(); phaseCopy(); });
     var dlg = $('dialog.pd');
     if (dlg) dlg.addEventListener('close', dialogClosed);
 
