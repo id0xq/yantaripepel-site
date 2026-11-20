@@ -231,15 +231,17 @@
     var n = lessonsOf(p).length;
     var sale = onSale(p);
     var meta = kind === 'lesson' ? 'Видеоурок и список материалов' : n + ' ' + plural(n, 'урок', 'урока', 'уроков') + ', доступ без срока';
-    var href = sale ? buyUrl(p) : (cfg.links.vk || '#');
-    var label = sale ? (kind === 'lesson' ? 'Купить урок' : 'Купить курс') : 'Узнать о старте';
+    var wait = (cfg.forms || {}).waitlist;
+    var href = sale ? buyUrl(p) : (wait || cfg.links.vk || '#');
+    var label = sale ? (kind === 'lesson' ? 'Купить урок' : 'Купить курс') : (wait ? 'Записаться на старт' : 'Узнать о старте');
     return '<div class="pd__offer pd__offer--' + kind + '">' +
       '<p class="pd__offer-k">' + (kind === 'lesson' ? 'Урок по этому украшению' : 'Входит в курс') + '</p>' +
       '<p class="pd__offer-t">' + esc(kind === 'lesson' ? cap(p.title.replace(/^Урок:\s*/, '')) : p.title) + '</p>' +
       '<p class="pd__offer-m">' + esc(meta) + '</p>' +
       '<div class="pd__offer-row"><span class="pd__offer-p">' + AA.fmtPrice(p.price) + '</span>' +
       '<a class="pd__buy' + (kind === 'course' ? ' pd__buy--main' : '') + '" data-offer="' + esc(p.slug) + '" data-sale="' + (sale ? 1 : 0) + '" href="' + esc(href) + '"' +
-      (sale ? '' : ' target="_blank" rel="noopener"') + '>' + label + '</a></div></div>';
+      (sale ? '' : ' target="_blank" rel="noopener"') + '>' + label + '</a></div>' +
+      (p.priceNote ? '<p class="pd__offer-n">' + esc(cap(p.priceNote)) + '</p>' : '') + '</div>';
   }
 
   function renderOffers() {

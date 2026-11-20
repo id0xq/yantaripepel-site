@@ -409,6 +409,7 @@ dialog.pd.is-in .pd__sheet { opacity: 1; transform: none; }
 .pd__offer-m { margin: 0; font-size: 13.5px; color: var(--fg-2); }
 .pd__offer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-top: 12px; }
 .pd__offer-p { font: 500 26px/1 var(--wide); }
+.pd__offer-n { margin: 8px 0 0; font-size: 13px; color: var(--fg-2); }
 .pd__buy { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 18px; border: 1px solid var(--line-2); color: var(--fg); font: 400 11.5px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; }
 .pd__buy:hover { border-color: var(--fg); }
 .pd__buy--main { background: var(--fg); border-color: var(--fg); color: var(--bg); }

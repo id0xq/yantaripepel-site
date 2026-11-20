@@ -635,6 +635,18 @@
       if (url) a.href = url;
     });
     $$('[data-link-note]').forEach(function (el) { el.hidden = !AA.config.links[el.getAttribute('data-link-note')]; });
+    // Яндекс Формы: кнопка появляется, когда в настройках есть ссылка на форму
+    $$('[data-form]').forEach(function (a) {
+      var url = (AA.config.forms || {})[a.getAttribute('data-form')];
+      a.hidden = !url;
+      if (url) a.href = url;
+    });
+    // Цены в вопросах — из shop.js
+    var products = (AA.shop && AA.shop.products) || [];
+    $$('[data-price]').forEach(function (el) {
+      var p = products.filter(function (x) { return x.slug === el.getAttribute('data-price'); })[0];
+      if (p) el.textContent = AA.fmtPrice(p.price) + (p.priceNote ? ' (' + p.priceNote + ')' : '');
+    });
   }
 
   /* ---------- старт ---------- */
